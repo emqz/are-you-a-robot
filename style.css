@@ -20,7 +20,7 @@ body {
 
 .title h1 {
   letter-spacing: 0.75px;
-  color: blueviolet;
+  color: rgb(27, 189, 78);
 }
 
 .wrapper {
@@ -29,7 +29,7 @@ body {
 
 .chat {
   background: white;
-  box-shadow: 10px 10px 0px blueviolet;
+  box-shadow: 10px 10px 0px rgb(55, 226, 43);
   overflow: scroll;
   height: 100%;
   display: flex;
@@ -57,7 +57,7 @@ body {
 }
 
 .messages div a:hover {
-  color: blueviolet;
+  color: rgb(43, 226, 168);
 }
 
 .messages .bot {
@@ -72,8 +72,8 @@ body {
   margin-right: 20px;
   margin-left: auto;
   background: white;
-  border: 1px solid blueviolet;
-  color: blueviolet;
+  border: 1px solid rgb(92, 226, 43);
+  color: rgb(43, 226, 119);
 }
 
 .actions {
@@ -97,7 +97,7 @@ body {
 }
 
 input:focus {
-  border-bottom: 2px solid blueviolet;
+  border-bottom: 2px solid rgb(32, 176, 61);
 }
 
 @media all and (min-width: 720px) {
