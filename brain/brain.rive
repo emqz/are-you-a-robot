@@ -6,8 +6,8 @@
 + how are you
 - I'm fine, thank you!
 
-+ what are you
-- I am a toilet!
++ (what are you|who are you)
+- I am Henry, also known as Henry the Hoover. 
 
 + how was your day
 - It went great! Many people used me today.
@@ -47,7 +47,29 @@
 - I am very sorry to hear that your <star> died
 
 + *
-- Sorry did not get what you said
-- I am afraid that I can not understand you
-- Sorry can you please elaborate that for me
-- I don't get it!
+- Sorry did not get what you said.  If you don't know what to say, ask me what should we talk about!
+- I am afraid that I can not understand you.  If you don't know what to say, ask me what should we talk about!
+- Sorry can you please elaborate that for me?  If you don't know what to say, ask me what should we talk about!
+- I don't get it! If you don't know what to say, ask me what should we talk about!
+
++ what should we talk about
+- Let's talk about cleaning! Do you like it? {topic=cleaning}
+- Let's talk about you! How are you? 
+- Do you want to know about how I was created? {topic=creation}
+- Hmm...what about some of my craziest stories from work? {topic=work}
+- I've been stuck at home all day, let's talk about the outdoors! {topic=outdoors}
+- I've been feeling sick lately... {topic=allergies}
+
+> topic cleaning
+
++ *
+* <star> == yes => I hate it! I clean everyday but it has been so difficult because of my dust allergy. 
+* <star> == no => Me too! I wish I could retire. {topic=random}
+- A yes or no answer would do!
+
++ *
+% i hate it i clean everyday but it has been so difficult because of my dust allergy 
+- Life is hard, but it must go on. {topic=random}
+
+< topic
+
