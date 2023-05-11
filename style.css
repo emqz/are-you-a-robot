@@ -8,7 +8,17 @@
 }
 
 body {
-  background: #f2f2f2;
+  background: #484848;
+  background-image: url("HenryFace.png");
+  background-size: 1000px 1100px;
+  background-repeat: no-repeat;
+  background-position-x: 0%;
+  background-position-y: 59%;
+}
+
+img {
+  width: 300px;
+  height: 300px;
 }
 
 .title {
@@ -20,7 +30,7 @@ body {
 
 .title h1 {
   letter-spacing: 0.75px;
-  color: rgb(27, 189, 78);
+  color: rgb(255, 255, 255);
 }
 
 .wrapper {
@@ -28,14 +38,14 @@ body {
 }
 
 .chat {
-  background: white;
-  box-shadow: 10px 10px 0px rgb(55, 226, 43);
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 0px 50px rgb(255, 0, 0);
   overflow: scroll;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 0px 20px;
-  border-radius: 10px;
+  padding: 20px 0px 0px 20px;
+  border-radius: 50px;
 }
 
 .messages {
@@ -53,27 +63,27 @@ body {
 }
 
 .messages div a {
-  color: white;
+  color: rgb(85, 255, 252);
 }
 
 .messages div a:hover {
-  color: rgb(43, 226, 168);
+  color: rgb(42, 124, 200);
 }
 
 .messages .bot {
   text-align: left;
   margin-right: auto;
-  background: black;
-  color: white;
+  background: rgb(200, 241, 226);
+  color: rgb(0, 0, 0);
 }
 
 .messages .self {
   text-align: right;
   margin-right: 20px;
   margin-left: auto;
-  background: white;
-  border: 1px solid rgb(92, 226, 43);
-  color: rgb(43, 226, 119);
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .actions {
@@ -82,7 +92,7 @@ body {
   position: sticky;
   bottom: -1px;
   padding: 10px 0px 20px;
-  background: white;
+  background: rgb(255, 255, 255);
 }
 
 .actions input {
@@ -97,14 +107,14 @@ body {
 }
 
 input:focus {
-  border-bottom: 2px solid rgb(32, 176, 61);
+  border-bottom: 2px solid rgb(117, 83, 210);
 }
 
 @media all and (min-width: 720px) {
   .wrapper {
     width: 40vw;
     height: 90vh;
-    margin: 0 auto 2.5vh;
+    margin: 0 1000 2.5vh;
   }
 }
 
