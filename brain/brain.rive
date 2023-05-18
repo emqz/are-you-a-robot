@@ -1,22 +1,24 @@
 ! version = 2.0
 
-+ (hello|hi|hey|howdy|hello there)
-- Hello, what's your name?
++ (hello|hi|hey|howdy|hello there|hi there|hey there)
+* <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
+- Hello again, <get name>! Do you want to talk about anything?
+- Hey there, <get name>. Is there anything you need help with?
 
-+ *
-% hello what is your name
++ [i am] *
+% hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
 - <set name=<formal>> Nice to meet you, <get name>!
 
-+ (whats up|wassup)
-- Not much, how about you?
++ what is up
+- Not much, I've just been cleaning the whole day. How about you?
 
 + [*] (well|good|great|amazing) [*]
-% not much how about you
-- That's great to hear! What would you like to talk about today? 
+% not much i have just been cleaning the whole day how about you
+- That's great to hear! Is there anything you'd like to talk about today?
 
 + [*] (sad|horrible|bad|awful) [*]
-% not much how about you
-- That's a such shame, do you want to talk about it? {topic=sad}
+% not much i have just been cleaning the whole day how about you
+- That's such a shame, do you want to talk about it? {topic=sad}
 
 > topic sad
 + *
@@ -29,8 +31,8 @@
 < topic
 
 + [*] my name is *
-- Nice to meet you, <formal>!
-- Nice meeting you <formal>!
+* <get name> == undefined => Nice to meet you, <formal>!
+- Why are you telling me your name again, <get name>?
 
 + (what are you|who are you)
 - I am Henry, also known as Henry the Hoover. 
