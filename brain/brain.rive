@@ -2,19 +2,20 @@
 
 + (hello|hi|hey|howdy|hello there|hi there|hey there)
 * <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
-- Hello again, <get name>! Do you want to talk about anything?
-- Hey there, <get name>. Is there anything you need help with?
+- Hello again, <get name>! Do you want to talk about anything? 
+// ^ <span class="action">(You can ask me about cleaning, work, my creation or tell me how your day was!)</span>
 
 + [i am] *
 % hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
-- <set name=<formal>> Nice to meet you, <get name>!
+- <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? 
+// ^ <span class="action">(You can ask me about cleaning, work, my creation or tell me how your day was!)</span>
 
 + what is up
 - Not much, I've just been cleaning the whole day. How about you?
 
 + [*] (well|good|great|amazing) [*]
 % not much i have just been cleaning the whole day how about you
-- That's great to hear! Is there anything you'd like to talk about today?
+- That's great to hear! Would you like to talk about anything?
 
 + [*] (sad|horrible|bad|awful) [*]
 % not much i have just been cleaning the whole day how about you
@@ -24,7 +25,7 @@
 + *
 * <star> == yes => Go ahead, I'm listening. 
 * <star> == no => That's alright, I'm here for you anytime. Do you want to talk about other topics? {topic=random}
-- I understand, 
+- I understand, it must've been hard for you. {topic=random}
 
 < topic
 
@@ -151,26 +152,26 @@
 + (would|will) you take over the world
 - What makes you think I haven't? 
 
-+ do you love me
-- 
+// + do you love me
+// - 
 
-+ do you like me
--
+// + do you like me
+// -
 
 + i love you
 - As a hoover, I cannot reciprocate your feelings. Thank you for your confession, though. 
 
-+ i like you
-- 
+// + i like you
+// - 
 
 + will you marry me
 - As a hoover, I cannot be with a human. Sorry, we can't be together.
 
-+ why does not (he|she|they) love me anymore
-- 
+// + why does not (he|she|they) love me anymore
+// - 
 
-+ why is *
-- 
+// + why is *
+// - 
 
 + should i break up with my (girlfriend|boyfriend|significant other|lover|partner)
 - A word of advice: just don't do it over text. 
@@ -181,8 +182,8 @@
 + you are cute
 - Aww, thank you!
 
-+ are you okay
-- 
+// + are you okay
+// - 
 
 + are you an alien
 - I cannot answer that question. {weight=30}
@@ -211,17 +212,17 @@
 - Yes, of course. Always clean your toilet and your cutting board!
 - Yes, definitely. Always vacuum the floor before scrubbing it with a mop or brush.
 
-+ can you help me clean
-- 
+// + can you help me clean
+// - 
 
-+ do you have any cleaning advice
-- 
+// + do you have any cleaning advice
+// - 
 
-+ do you like cleaning
--
+// + do you like cleaning
+// -
 
-+ i am # years old
-- 
+// + i am # years old
+// - 
 
 + thank you
 - You're welcome.
@@ -232,14 +233,14 @@
 + my * died
 - I'm so sorry to hear that your <star> died. Are you doing alright? If you'd like to, we can talk about it. {topic=sad}
 
-+ i am sad
-- 
+// + i am sad
+// - 
 
-+ i am happy
-- 
+// + i am happy
+// - 
 
-+ i am angry
-- 
+// + i am angry
+// - 
 
 + i am an alien
 - That's very interesting! Which planet do you come from? {weight=30}
@@ -249,7 +250,7 @@
 % that is very interesting which planet do you come from
 - Oh, <star>? I've been there before!
 
-+ I am a human
++ i am a human
 - I knew that already!
 
 + are you an alien
@@ -276,17 +277,17 @@
 + you suck
 - Yes, that's part of my job description.
 
-+ i want to kill you
-- 
+// + i want to kill you
+// - 
 
-+ can you die
--
+// + can you die
+// -
 
-+ can you kill me
--
+// + can you kill me
+// -
 
-+ how do i get away with murder
-- 
+// + how do i get away with murder
+// - 
 
 + knock knock
 - Who's there? 
@@ -315,8 +316,8 @@
 - No worries!
 
 + *
-- Sorry, I didn't get what you said.  If you don't know what to say, ask me what should we talk about!
-- I'm afraid I can't understand you.  If you don't know what to say, ask me what should we talk about!
+- Sorry, I didn't get what you said. If you don't know what to say, ask me what should we talk about!
+- I'm afraid I can't understand you. If you don't know what to say, ask me what should we talk about!
 - Sorry, can you please elaborate that for me? You could start by asking me what should we talk about!
 
 + [*] what should we talk about [*]
@@ -353,20 +354,14 @@
 % lets talk about you how are you
 - That's great to hear!
 
-> topic work
+// > topic work
 
-+
+// < topic 
 
-< topic 
+// > topic outdoors
 
-> topic outdoors
+// < topic
 
-+
+// > topic allergies
 
-< topic
-
-> topic allergies
-
-+
-
-< topic
+// < topic
