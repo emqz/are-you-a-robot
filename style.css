@@ -2,7 +2,7 @@
 
 * {
   font-family: "Inter", Arial;
-  font-size: 12pt;
+  font-size:13pt;
   margin: 0;
   box-sizing: border-box;
 }
@@ -18,12 +18,11 @@ body {
 
 .nozzle {
   position:absolute;
-  top: -210px; right: 20px;
-  width: 450px;
-  height: 400px;
+  top: -210px; right: 17px;
 }
 
 .title {
+  font-weight: 900;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -31,6 +30,9 @@ body {
 }
 
 .title h1 {
+  font-size: 40;
+  position: absolute;
+  margin-top: 50px;
   letter-spacing: 0.75px;
   color: rgb(255, 255, 255);
 }
@@ -76,7 +78,7 @@ body {
 .messages .bot {
   text-align: left;
   margin-right: auto;
-  background: rgb(200, 240, 246);
+  background: rgb(247, 211, 243);
   color: rgb(0, 0, 0);
 }
 
@@ -85,7 +87,7 @@ body {
   margin-right: 20px;
   margin-left: auto;
   margin-top: 120;
-  background: rgb(0, 0, 0);
+  background: rgb(76, 76, 76);
   border: 1px solid rgb(255, 255, 255);
   color: rgb(255, 255, 255);
 }
@@ -111,7 +113,7 @@ body {
 }
 
 input:focus {
-  border-bottom: 2px solid rgb(117, 83, 210);
+  border-bottom: 2px solid rgb(83, 111, 210);
 }
 
 @media all and (min-width: 720px) {
