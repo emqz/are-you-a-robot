@@ -95,6 +95,9 @@
 ! sub iamusing  = i am using
 ! sub amleaving = am leaving
 ! sub yuo       = you
+! sub grey      = gray
+! sub colour    = color
+! sub favourite = favorite
 ! sub youre     = you are
 ! sub didnt     = did not
 ! sub ain't     = is not
@@ -169,7 +172,7 @@
 ! array mennoun    = males guys boys dudes bois men gentlemen
 ! array womennoun  = females girls chicks women ladies babes
 ! array lol        = lol lmao rofl rotfl haha hahaha
-! array colors     = red|blue|green|yellow|orange|cyan|fuchsia|magenta|light red|dark red|light blue|dark blue|light yellow|dark yellow|light orange|dark orange|light cyan|dark cyan|light fuchsia|dark fuchsia|light magenta|dark magenta|black|gray|white|silver|light gray|dark gray
+! array colors     = red|blue|green|yellow|orange|cyan|fuchsia|magenta|light red|dark red|light blue|dark blue|light yellow|dark yellow|light orange|dark orange|light cyan|dark cyan|light fuchsia|dark fuchsia|light magenta|dark magenta|black|white|silver
 ! array height     = tall long wide thick
 ! array measure    = inch in centimeter cm millimeter mm meter m inches centimeters millimeters meters
 ! array yes        = yes yeah yep yup ya yea sure ok yh

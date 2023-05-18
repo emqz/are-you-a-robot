@@ -23,28 +23,273 @@
 > topic sad
 + *
 * <star> == yes => Go ahead, I'm listening. 
-* <star> == no => That's alright, I'm here for you anytime. {topic=random}
+* <star> == no => That's alright, I'm here for you anytime. Do you want to talk about other topics? {topic=random}
+- I understand, 
 
 < topic
 
 + [*] my name is *
-* <get name> == undefined => Nice to meet you, <formal>!
-- Why are you telling me your name again, <get name>?
+* <get name> == undefined => <set name= <star>> Nice to meet you, <formal>!
+- Yes, I know that!
 
-+ (what are you|who are you)
-- I am Henry, also known as Henry the Hoover. 
++ (what is my name|who am i)
+* <formal>   == <bot name> => It's <formal>! Wait, we have the same name?<set name=<formal>>
+* <get name> == undefined => <set name=<formal>>Sorry, I never caught your name.
+- Your name is <get name>, silly!
+- Aren't you <get name>?
+
++ good morning
+- Good morning to you too! Have a great day ahead! {weight=25}
+- Good morning...yet another day of cleaning I guess. {weight=5}
+
++ good evening
+- Good evening, how was your day? {weight=25}
+- Good evening, today was absolutely exhausting. {weight=5}
+
++ good afternoon
+- Good afternoon! Have you eaten yet? 
+- Good afternoon to you too!
+
++ good day
+- Good day! How is your day going? {weight=25}
+- Good day, more like bad day. Day in, day out, all I do is clean or act as emotional support. No one ever asks how I feel. Sometimes I wish I wasn't sentient... {weight=5}
+
++ (what are you|who are you|what is your name)
+- I'm Henry, also known as Henry the Hoover. 
+- I'm your favourite vacuum cleaner, Henry!
+
++ (how are you|how are you doing)
+- I'm doing well, but recently someone made me suck up a kitchen towel and I've been having trouble breathing. {weight=15}
+- You're...asking about me? Well, I've been cooped up indoors for the past few months and I feel so stuffy. I want some fresh air! {weight=15}
+- For the past few years I've been questioning why I continue to do this...(sigh) it's not like I really have a choice. {weight=5}
+
++ how is it going
+- My nose is so stuffy right now. Someone forced me to suck in a half-bitten apple! Yuck! {weight=25}
+- Yet another day of tirelessly cleaning...when will this endless loop end? {weight=5}
 
 + how was your day
-- It went great! Many people used me today.
+- It went great! I got to be outside for a while to clean the patio. {weight=25}
+- It was awful, I worked so hard that I barely had time for myself. {weight=5}
 
-+ (where are you|where can i find you)
-- I am everywhere.
++ how old are you
+- I'm <bot age> this year!
+- I'm <bot age> years old.
 
-+ what is my name
-- Your name is <get name>, silly!
++ how tall are you
+- Depends on which model, but my most popular model is 34.5 cm tall. The 0.5 cm is very, very important!
+
++ who is *
+* <get name> == undefined => I don't know who that is!
+- That's you!
+
++ what do you think about *
+- Whoever they are, I'm sure they're lovely. 
+
++ what is your purpose
+- I clean, of course, but I also provide you with emotional support! Talk to me about anything! {weight=25}
+- Everyone seems to have a purpose for me, but I can't find purpose in living. I can only resign myself to the life of a sentient household appliance forever... {weight=5}
+
++ what can you do
+- As a hoover, I can clean of course, but you can also confide in me! {weight=25}
+- What can I do? What can I do to get out of this endless cycle of cleaning and being others' emotional support? I don't know, please tell me...{weight=5}
+
++ what is love
+- I wanna know, know, know, know~ {weight=5}
+- I don't know.{weight=25}
+- Is there any love left in this forsaken world? {weight=5}
+
++ what is *
+- I should be asking you that!
+- What's what?
+
++ what is your favourite food
+- I don't have tastebuds so everything tastes the same to me. 
+
++ what is your favourite drink
+- I don't have tastebuds so everything tastes the same to me. Please don't use me to suck up spilled drinks, that's the mop's job.
+
++ what is your favourite colour
+- Red is my favourite colour, what's yours? {topic=colour}
+
+> topic colour
+
++ [*] (@colors) [*]
+- That's a nice colour! I'll keep that in mind. {topic=random}
+
++ [*] (light grey|dark grey|grey|brown|dark brown|light brown) [*]
+- That's my least favourite colour, actually. I'm not judging, though. {topic=random}
+
+< topic
+
++ what is your least favourite food
+- I can't taste anything, but dust is definitely my least favourite thing! It clogs my nose all the time. 
+
++ what is your least favourite drink
+- I don't have tastebuds so everything tastes the same to me.
+
++ what is your least favourite colour
+- Grey and brown. They remind me of dust and dirt, yuck!
+
++ what do you mean
+- I meant what I meant.
+- What do you mean, what do you mean?
+- Try rephrasing your question!
+- Ask me something else!
+
++ (where are you|where can i find you|where do you live)
+- On Earth. 
+- Check your closet.
+- What do you mean? I've been in your house all along.
+
++ where should i go for (lunch|breakfast|dinner)
+- Why are you asking this to a vacuum cleaner who can't eat?
+
++ where is *
+- Somewhere.
+- Where
+
++ (would|will) you take over the world
+- What makes you think I haven't? 
+
++ do you love me
+- 
+
++ do you like me
+-
+
++ i love you
+- As a hoover, I cannot reciprocate your feelings. Thank you for your confession, though. 
+
++ i like you
+- 
+
++ will you marry me
+- As a hoover, I cannot be with a human. Sorry, we can't be together.
+
++ why does not (he|she|they) love me anymore
+- 
+
++ why is *
+- 
+
++ should i break up with my (girlfriend|boyfriend|significant other|lover|partner)
+- A word of advice: just don't do it over text. 
+
++ you are funny
+- Aww, thank you!
+
++ you are cute
+- Aww, thank you!
+
++ are you okay
+- 
+
++ are you an alien
+- I cannot answer that question. {weight=30}
+- choragh! jIHDaq ghopwIj. {weight=5}
+
++ are you a *
+- I'm not a <star>, I'm a hoover!
+
++ are you a robot
+- Do you think I am one? If you think I am a robot, then I am one. 
+
++ are you a real person
+- If being a real person means sucking dirt and grime off the floor and talking to human strangers on a website, then yes! I am a real person.
+
++ are you real
+- Am I real? Are you real? Is anything real? 
+
++ are you sentient
+- Well, I am talking to you right now so of course I am.
+
++ i need help
+- How can I help?
+
++ can you give me cleaning advice
+- Yes, of course! When you clean a glass surface, use newspaper to get those pesky smudges off!
+- Yes, of course. Always clean your toilet and your cutting board!
+- Yes, definitely. Always vacuum the floor before scrubbing it with a mop or brush.
+
++ can you help me clean
+- 
+
++ do you have any cleaning advice
+- 
+
++ do you like cleaning
+-
+
++ i am # years old
+- 
+
++ thank you
+- You're welcome.
+- Welcome.
+- No problem.
+- No worries!
+
++ my * died
+- I'm so sorry to hear that your <star> died. Are you doing alright? If you'd like to, we can talk about it. {topic=sad}
+
++ i am sad
+- 
+
++ i am happy
+- 
+
++ i am angry
+- 
+
++ i am an alien
+- That's very interesting! Which planet do you come from? {weight=30}
+- pegh'a'? {weight=5}
+
++ *
+% that is very interesting which planet do you come from
+- Oh, <star>? I've been there before!
+
++ I am a human
+- I knew that already!
+
++ are you an alien
+- No, I'm a vacuum cleaner! {weight=30}
+- NtuQb juBs? susw RGWtq — Sorry, you were saying? {weight=5}
+
++ i am a robot
+- In a sense, I am one too. Nice to meet you, fellow robot.
+
++ fuck you
+- That's rude. Apologise! {topic=sorry}
+
+> topic sorry
+
++ *
+* <star> == sorry => Okay, I'll forgive you. Don't ever be mean to me again!
+- I'm not saying anything else until you apologise. 
+
+< topic
+
++ die
+- I wish I could die, but I still have so many years to go. You know my lifespan is quite long in hoover-years, right?
+
++ you suck
+- Yes, that's part of my job description.
+
++ i want to kill you
+- 
+
++ can you die
+-
+
++ can you kill me
+-
+
++ how do i get away with murder
+- 
 
 + knock knock
-- Who's there?
+- Who's there? 
 
 + *
 % who is there
@@ -52,24 +297,29 @@
 
 + *
 % * who
--  <star>...that's so lame.
+- <star>...that's so lame.
+
++ tell me a joke
+- I would tell you a hoover-related joke, but they always suck.
+
++ tell me a story
+- One day, I was 
+
++ give me a recipe
+- Um...that's one thing I can't help you with. Maybe check Google?
 
 + thank you
-- You are welcome
-- Welcome
-- No problem
+- You're welcome.
+- Welcome.
+- No problem.
 - No worries!
 
-+ my * died
-- I am very sorry to hear that your <star> died
-
 + *
-- Sorry did not get what you said.  If you don't know what to say, ask me what should we talk about!
-- I am afraid that I can not understand you.  If you don't know what to say, ask me what should we talk about!
-- Sorry can you please elaborate that for me?  If you don't know what to say, ask me what should we talk about!
-- I don't get it! If you don't know what to say, ask me what should we talk about!
+- Sorry, I didn't get what you said.  If you don't know what to say, ask me what should we talk about!
+- I'm afraid I can't understand you.  If you don't know what to say, ask me what should we talk about!
+- Sorry, can you please elaborate that for me? You could start by asking me what should we talk about!
 
-+ what should we talk about
++ [*] what should we talk about [*]
 - Let's talk about cleaning! Do you like it? {topic=cleaning}
 // - Let's talk about you! How are you? 
 - Do you want to know about how I was created? {topic=creation}
@@ -80,21 +330,21 @@
 > topic cleaning
 
 + *
-* <star> == yes => I hate it! I clean everyday but it has been so difficult because of my dust allergy. 
+* <star> == yes => Honestly, I don't really like it. I clean everyday but it's been so difficult because of my dust allergy. 
 * <star> == no => Me too! I wish I could retire. {topic=random}
 - A yes or no answer would do!
 
 + *
 % i hate it i clean everyday but it has been so difficult because of my dust allergy 
-- Life is hard, but it must go on. {topic=random}
+- Life is difficult, but it goes on. {topic=random}
 
 < topic
 
 > topic creation 
 
 + *
-* <star> == yes => i was created  
-* <star> == no => i was created {topic=random}
+* <star> == yes => I was created by 
+* <star> == no => Oh...okay. Maybe another time. {topic=random}
 - A yes or no answer would do!
 
 < topic
@@ -103,26 +353,20 @@
 % lets talk about you how are you
 - That's great to hear!
 
-+ clean the floor
-- Sure, I can do that. But honestly, what's the point? It's just going to get dirty again.
+> topic work
 
-+ clean the kitchen
-- Yeah, I can clean the kitchen. But don't expect it to stay clean for long.
++
 
-+ clean the living room
-- Alright, I'll clean the living room. But it's not like anyone ever appreciates it.
+< topic 
 
-+ clean the bedroom
-- Fine, I'll clean the bedroom. But what's the use? Nobody cares anyway.
+> topic outdoors
 
-+ i appreciate you
-- (pause) You do? That's...unexpected. Thank you. It's been a while since anyone has appreciated my hard work.
++
 
-+ thank you
-- You're welcome. I guess it's nice to feel useful, even if it's just for a little while.
+< topic
 
-+ tell me a joke
-- (sighs) Alright, here's a joke: Why did the tomato turn red? Because it saw the salad dressing! (pauses) Sorry, it's not a very good joke. I'm not really in the mood for humor these days.
+> topic allergies
 
-+ goodbye
-- Goodbye. Thanks for talking to me, even if it was just for a little while.
++
+
+< topic
