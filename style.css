@@ -10,15 +10,17 @@
 body {
   background: #484848;
   background-image: url("HenryFace.png");
-  background-size: 1000px 1100px;
+  background-size: 1150px 1250px;
   background-repeat: no-repeat;
-  background-position-x: 0%;
-  background-position-y: 59%;
+  background-position-x: -26.35%;
+  background-position-y: 63%;
 }
 
-img {
-  width: 300px;
-  height: 300px;
+.nozzle {
+  position:absolute;
+  top: -210px; right: 20px;
+  width: 450px;
+  height: 400px;
 }
 
 .title {
@@ -55,10 +57,11 @@ img {
 .messages div {
   max-width: 60%;
   width: fit-content;
+  height: fit-content;
   display: block;
   margin: 5px;
   padding: 10px;
-  border-radius: 7px;
+  border-radius: 10px;
   white-space: pre-line;
 }
 
@@ -73,7 +76,7 @@ img {
 .messages .bot {
   text-align: left;
   margin-right: auto;
-  background: rgb(200, 241, 226);
+  background: rgb(200, 240, 246);
   color: rgb(0, 0, 0);
 }
 
@@ -81,6 +84,7 @@ img {
   text-align: right;
   margin-right: 20px;
   margin-left: auto;
+  margin-top: 120;
   background: rgb(0, 0, 0);
   border: 1px solid rgb(255, 255, 255);
   color: rgb(255, 255, 255);
