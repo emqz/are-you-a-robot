@@ -3,7 +3,7 @@
 + (hello|hi|hey|howdy|hello there|hi there|hey there)
 * <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
 - Hello again, <get name>! Do you want to talk about anything? 
-// ^ <span class="action">(You can ask me about cleaning, work, my creation or tell me how your day was!)</span>
+^ <span class="prompt">(You can ask me about cleaning, work, my creation or tell me how your day was!)</span>
 
 + [i am] *
 % hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
