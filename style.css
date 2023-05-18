@@ -12,7 +12,7 @@ body {
   background-image: url("HenryFace.png");
   background-size: 1150px 1250px;
   background-repeat: no-repeat;
-  background-position-x: -26.35%;
+  background-position-x: -25%;
   background-position-y: 63%;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .title h1 {
-  font-size: 40;
+  font-size: 0;
   position: absolute;
   margin-top: 50px;
   letter-spacing: 0.75px;
@@ -48,8 +48,9 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 0px 0px 20px;
+  padding: 110px 0px 0px 20px;
   border-radius: 50px;
+  margin: 5px;
 }
 
 .messages {
@@ -86,7 +87,7 @@ body {
   text-align: right;
   margin-right: 20px;
   margin-left: auto;
-  margin-top: 120;
+  margin-top: 20px;
   background: rgb(76, 76, 76);
   border: 1px solid rgb(255, 255, 255);
   color: rgb(255, 255, 255);
@@ -114,6 +115,13 @@ body {
 
 input:focus {
   border-bottom: 2px solid rgb(83, 111, 210);
+}
+
+.prompt {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 75%;
+  font-family: monospace;
 }
 
 @media all and (min-width: 720px) {
