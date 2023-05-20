@@ -5,7 +5,7 @@
 ! var master = Emma and Feifey
 
 // Bot Variables
-! var name     = Henry the Hoover
+! var name     = Henry
 ! var age      = 42
 
 
@@ -147,6 +147,8 @@
 ! sub 8-|       = nerdy
 ! sub |-)       = tired
 ! sub +o(       = ill
+! sub sure      = yes
+! sub nope      = no
 ! sub *-)       = uncertain
 ! sub ^o)       = raised eyebrow
 ! sub (6)       = devil
