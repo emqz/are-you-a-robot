@@ -59,6 +59,18 @@
 
 // < topic
 
++ it went good
+% not much i have just been cleaning the whole day how about you
+- That's great to hear! What did you do? {topic=happy}
+
++ it went bad
+% not much i have just been cleaning the whole day how about you
+- That's such a shame, do you want to talk about it? {topic=sad}
+
++ it was fine
+% not much i have just been cleaning the whole day how about you
+- 
+
 + *
 % lets talk about you how are you
 - i
@@ -86,19 +98,6 @@
 
 + do you have (siblings|family)
 - Yes, you may have heard of them. I have a total of 7 siblings, but some of them were discontinued years ago. It was sad to see them go, but such is the fate of a machine. {topic=family}
-
-
-+ it went good
-% not much i have just been cleaning the whole day how about you
-- That's great to hear! What did you do? {topic=happy}
-
-+ it went bad
-% not much i have just been cleaning the whole day how about you
-- That's such a shame, do you want to talk about it? {topic=sad}
-
-+ it was fine
-% not much i have just been cleaning the whole day how about you
-- 
 
 > topic sad
 + *
@@ -165,6 +164,9 @@
 
 + how tall are you
 - Depends on which model, but my most popular model is 34.5 cm tall. The 0.5 cm is very, very important!
+
++ how heavy are you
+- Come on...do you really have to ask? Machines have their own right to privacy too.
 
 + who is *
 * <get name> == undefined => I don't know who that is!
