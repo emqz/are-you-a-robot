@@ -3,23 +3,23 @@
 + (hello|hi|hey|howdy|hello there|hi there|hey there)
 * <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
 - Hello again, <get name>! Do you want to talk about anything? 
-^ <span class="action">(You can ask me "What should we talk about?"")</span>
+^ <span class="action">(Respond with "What should we talk about?"")</span>
 
 + [i am] *
 % hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
 - <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? 
-^ <span class="action">(You can ask me "What should we talk about?"")</span>
+^ <span class="action">(Respond with "What should we talk about?"")</span>
 
 + what is up
 - Not much, I've just been cleaning the whole day. How about you? How did your day go?
-^  <span class="action">(You can ask me "What should we talk about?"")</span>
+^  <span class="action">(Respond with "good", "bad" or "fine")</span>
 
 + what should we talk about
 - Let's talk about cleaning! Do you like it? {topic=cleaning}
 - Let's talk about you! How are you? Tell me if it went good, bad or if it was fine!
 - Do you want to know about how I was created? {topic=creation}
 // - Hmm...what about some of my craziest stories from work? {topic=work}
-// - I've been stuck at home all day, let's talk about the outdoors! {topic=outdoors}
+// - I've been stuck at home for the past few months so let's talk about the outdoors! {topic=outdoors}
 // - I've been feeling sick lately... {topic=allergies}
 
 > topic cleaning
@@ -346,12 +346,12 @@
 > topic alien
 
 + *
-% that is very interesting which planet do you come from 
-- Oh, <star>? I've been there before!
+% thats very interesting which planet do you come from 
+- <set planet={formal}<star>{/formal}> Oh, <get planet>! I've been there before!
 
 + *
-% oh <star> i have been there before
-- Yeah, it was great,
+% oh * i have been there before 
+- Yeah, it was great! {topic=random}
 
 < topic
 
