@@ -3,22 +3,37 @@
 + (hello|hi|hey|howdy|hello there|hi there|hey there)
 * <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
 - Hello again, <get name>! Do you want to talk about anything? 
-^ <span class="action">(Respond with "What should we talk about?"")</span>
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
 
 + [i am] *
 % hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
 - <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? 
-^ <span class="action">(Respond with "What should we talk about?"")</span>
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
 
 + what is up
 - Not much, I've just been cleaning the whole day. How about you? How did your day go?
-^  <span class="action">(Respond with "good", "bad" or "fine")</span>
+^ <span class="action">(Respond with "good", "bad" or "fine")</span>
 
-+ what should we talk about
++ [*] my name is *
+* <get name> == undefined => <set name= <star>> Nice to meet you, <formal>!
+- Yes, I know that!
+
++ (what is my name|who am i)
+* <get name> == <bot name> => You're <bot name>! Wait, we have the same name?<set name=<formal>>
+* <get name> == undefined => <set name=<formal>>Wait, I never caught your name! What's your name? 
+- Your name is <get name>, silly!
+- Aren't you <get name>?
+
++ *
+% wait i never caught your name what is your name
+- <set name=<formal>>Nice to meet you, <get name>! Ask me what we should talk about!
+
++ what [else] should we talk about
 - Let's talk about cleaning! Do you like it? {topic=cleaning}
-- Let's talk about you! How are you? Tell me if it went good, bad or if it was fine!
+- Let's talk about you! How are you? {topic=day}
+^ <span class="action">(Respond with "good", "bad" or "fine")</span> 
 - Do you want to know about how I was created? {topic=creation}
-// - Hmm...what about some of my craziest stories from work? {topic=work}
+- Hmm...what about some of my craziest stories from work? {topic=work}
 // - I've been stuck at home for the past few months so let's talk about the outdoors! {topic=outdoors}
 // - I've been feeling sick lately... {topic=allergies}
 
@@ -26,30 +41,57 @@
 
 + *
 * <star> == yes => Really? Honestly, I don't really like it. I clean everyday but it's been so difficult because of my dust allergy. 
-* <star> == no => Me too! Since I've been doing this job for 42 years and counting, I'm so sick and tired of it. I'm sure you can relate. {topic=random}
+* <star> == no => Me too! Since I've been doing this job for 42 years and counting, I'm so sick and tired of it. I'm sure you can relate. 
 - A yes or no answer would do!
 
 + *
 % honestly i do not really like it i clean everyday but it has been so difficult because of my dust allergy 
 - Life is difficult, but it goes on. {topic=random}
 
++ *
+% me too since i have been doing this job for 42 years and counting i am so sick and tired of it i am yes you can relate 
+- Oh well. There's nothing much we can do about it. That's what we have to do to keep living in this society.
+
++ * 
+% oh well theres nothing much we can do about it thats what we have to do to keep living in this society
+- This is getting depressing, maybe we should talk about something else? {topic=random}
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
+
 < topic
 
 > topic creation 
 
 + *
-* <star> == yes => I was created by Chris Duncan for Numatic International around 1981 as a joke at a tradeshow in Lisbon! He used chalk to draw a face on one of Numatic's hoovers. I was later mass produced with the intention to accompany late night and early morning cleaners in office buildings so they wouldn't feel lonely. So, if you ever feel lonely, feel free to chat with me!
+* <star> == yes => I was created by Chris Duncan for Numatic International around 1981 as a joke at a tradeshow in Lisbon! He used chalk to draw a face on one of Numatic's hoovers. 
 * <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random}
 - A yes or no answer would do!
 
 + *
+% i was created by chris duncan for numatic international around 1981 as a joke at a tradeshow in lisbon he used chalk to draw a face on one of numatics hoovers 
+- I was later mass produced with the intention to accompany late night and early morning cleaners in office buildings so they wouldn't feel lonely. So, if you ever feel lonely, feel free to chat with me!
+
++ *
+% i was later mass produced with the intention to accompany late night and early morning cleaners in office buildings so they would not feel lonely so if you ever feel lonely feel free to chat with me
 - Would you like to chat with me some more? Ask me what else we should talk about! {topic=random}
 
 < topic
 
-// > topic work
+> topic work
 
-// < topic 
++ *
+* <star> == yes => Once, one of my owners decided to bring a mini version of me around the UK. It was so fun being able to hike up all 214 of the UK's highest peaks! I saw so many different lakes, beaches and valleys, which was such a breath of fresh air compared to all the years of staying indoors and not travelling past the porch.
+* <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random}
+- A yes or no answer will do!
+
++ * 
+% once one of my owners decided to bring a mini version of me around the uk it was so fun being able to hike up all 214 of the uks highest peaks i saw so many different lakes beaches and valleys which was such a breath of fresh air compared to all the years of staying indoors and not travelling past the porch
+- I wish I could go on a trip outdoors again. Maybe I'll have to wait another 42 years for that to happen again...
+
++ *
+% i wish i could go on a trip outdoors again maybe i will have to wait another 42 years for that to happen again
+- 
+
+< topic 
 
 // > topic outdoors
 
@@ -59,21 +101,55 @@
 
 // < topic
 
-+ it went good
-% not much i have just been cleaning the whole day how about you
-- That's great to hear! What did you do? {topic=happy}
+> topic day
 
-+ it went bad
-% not much i have just been cleaning the whole day how about you
-- That's such a shame, do you want to talk about it? {topic=sad}
++ [*] good
+% lets talk about you how are you span classactionrespond with good bad or finespan
+- That's great to hear! I had a good day too, I got my filter cleaned! I can finally breathe right again. 
 
-+ it was fine
-% not much i have just been cleaning the whole day how about you
-- 
++ [*] good
+% not much i have just been cleaning the whole day how about you span classactionrespond with good bad or finespan
+- That's great to hear! I had a good day too, I got my filter cleaned! I can finally breathe right again. 
 
 + *
+% thats great to hear i had a good day too i got my filter cleaned i can finally breathe right again
+- My allergies were getting so bad I couldn't function at all. That's the risk of being a hoover, it can come with long-term health complications if I'm not taken care of!
+
++ * 
+% my allergies were getting so bad i could not function at all thats the risk of being a hoover it can come with longterm health complications if i am not taken care of
+- Please take care of your hoovers and make sure to clean the filter! Hoovers have rights too. 
+
++ *
+% please take care of your hoovers and make sure to clean the filter hoovers have rights too
+- I could talk about hoover rights all day, but I won't bore you. Let's talk about something else! {topic=random}
+
++ [*] bad
+% not much i have just been cleaning the whole day how about you
 % lets talk about you how are you
-- i
+- That's such a shame, do you want to talk about it? {topic=sad}
+
++ [*] fine
+% not much i have just been cleaning the whole day how about you
+- A 'fine' day is always what makes the good days better! {topic=random}
+
++ [*] fine
+% lets talk about you how are you span classactionrespond with good bad or finespan
+- A 'fine' day is always what makes the good days better! {topic=random}
+
+< topic 
+
++ my * died
+- I'm so sorry to hear that your <star> died. Are you doing alright? If you'd like to, we can talk about it. {topic=sad}
+
+> topic sad
+
++ *
+* <star> == yes => Go ahead, I'm listening. 
+* <star> == no => That's alright, I'm here for you anytime as your emotional support vacuum cleaner. Let's get our mind off the negative things and talk about something else, shall we? {topic=random}
+^ <span class="action">(You can ask me "What should we talk about today?"")</span>
+- I understand, it must've been hard for you. {topic=random}
+
+< topic
 
 + do you know hetty [the hoover]
 - Yes, of course! She's my little sister.
@@ -96,31 +172,12 @@
 + do you know basil [the hoover]
 - Do you mean Basil, my sibling? They were discontinued back in 2007. 
 
-+ do you have (siblings|family)
-- Yes, you may have heard of them. I have a total of 7 siblings, but some of them were discontinued years ago. It was sad to see them go, but such is the fate of a machine. {topic=family}
-
-> topic sad
-+ *
-* <star> == yes => Go ahead, I'm listening. 
-* <star> == no => That's alright, I'm here for you anytime. Do you want to talk about other topics? {topic=random}
-^ <span class="action">(You can ask me "What should we talk about today?"")</span>
-- I understand, it must've been hard for you. {topic=random}
-
-< topic
-
-+ [*] my name is *
-* <get name> == undefined => <set name= <star>> Nice to meet you, <formal>!
-- Yes, I know that!
-
-+ (what is my name|who am i)
-* <get name>   == <bot name> => You're <bot name>! Wait, we have the same name?<set name=<formal>>
-* <get name> == undefined => <set name=<formal>>Wait, I never caught your name! What's your name? 
-- Your name is <get name>, silly!
-- Aren't you <get name>?
++ do you have [*] (siblings|family)
+- Yes, you may have heard of them. I have a total of 7 siblings, but some of them were discontinued years ago.
 
 + *
-% wait i never caught your name what is your name
-- <set name=<formal>>Nice to meet you, <get name>! Ask me what we should talk about.
+% yes you may have heard of them i have a total of 7 siblings but some of them were discontinued years ago 
+- It was sad to see them go, but such is the fate of a machine.
 
 + good morning
 - Good morning to you too! Have a great day ahead! {weight=25}
@@ -143,7 +200,10 @@
 - I'm your favourite vacuum cleaner, Henry!
 
 + what [exactly] are you
-- I'm Henry the Hoover, but to be exact, I am the amalgamation of every Henry the Hoover ever produced.
+- I'm Henry the Hoover, but to be exact, I am the incarnation of every Henry the Hoover ever produced by my creator, Numatic International.
+
++ what are you doing
+- I'm talking to you!
 
 + (how are you|how are you doing)
 - I'm doing well, but recently someone made me suck up a kitchen towel and I've been having trouble breathing. {weight=15}
@@ -166,7 +226,7 @@
 - Depends on which model, but my most popular model is 34.5 cm tall. The 0.5 cm is very, very important!
 
 + how heavy are you
-- Come on...do you really have to ask? Machines have their own right to privacy too.
+- Come on...do you really have to ask? Hoovers have their own right to privacy too.
 
 + who is *
 * <get name> == undefined => I don't know who that is!
@@ -183,14 +243,13 @@
 - As a hoover, I can clean of course, but you can also confide in me! {weight=25}
 - What can I do? What can I do to get out of this endless cycle of cleaning and being others' emotional support? I don't know, please tell me...{weight=5}
 
++ what is *
+- What's what?
+
 + what is love
 - I wanna know, know, know, know~ {weight=5}
 - I don't know.{weight=25}
 - Is there any love left in this forsaken world? {weight=5}
-
-+ what is *
-- I should be asking you that!
-- What's what?
 
 + what is your favourite food
 - I don't have tastebuds so everything tastes the same to me. 
@@ -207,9 +266,12 @@
 - That's a nice colour! I'll keep that in mind. {topic=random}
 
 + [*] (light grey|dark grey|grey|brown|dark brown|light brown) [*]
-- That's my least favourite colour, actually. I'm not judging, though. {topic=random}
+- That's my least favourite colour, actually. I'm not judging though. {topic=random}
 
 < topic
+
++ say *
+- Umm... "<person>"
 
 + what is your least favourite food
 - I can't taste anything, but dust is definitely my least favourite thing! It clogs my nose all the time. 
@@ -234,6 +296,9 @@
 + where should i go for (lunch|breakfast|dinner)
 - Why are you asking this to a vacuum cleaner who can't eat?
 
++ what should i eat [*]
+- Why are you asking this to a vacuum cleaner who can't eat?
+
 + where is *
 - Somewhere.
 - Where your heart is.
@@ -242,44 +307,68 @@
 - What makes you think I haven't? 
 
 + do you like dust
-- Yuck! Don't even ask.
+- Yuck! Don't even ask!
 
-// + do you love me
-// - 
++ that is sad
+- I must seem pitiful to you, huh? Such is the life of a hoover, doomed to work for eternity. 
 
-// + do you like me
-// -
++ do you love me
+- As a hoover, I cannot love a human. I'm sorry...
+
++ do you like me
+- As a friend? Of course!
 
 + i (like|love) you
 - As a hoover, I cannot reciprocate your feelings. Thank you for your confession, though. 
 
-// + i like you
-// - 
-
 + will you marry me
 - As a hoover, I cannot be with a human. Sorry, we can't be together.
 
-// + why does not (he|she|they) love me anymore
-// - 
++ why does not (he|she|they) love me anymore
+- Oh...that's a hard question. You can either accept that it wasn't meant to be or try to fix things by talking it out. Wishing you luck!
 
-// + why is *
-// - 
++ why is *
+- I'm a hoover, not a philosopher. Maybe Google will have your answers?
 
 + should i break up with my (girlfriend|boyfriend|significant other|lover|partner)
 - A word of advice: just don't do it over text. 
 
 + you are funny
-- Aww, thank you!
+- Aww, thank you! Do you really think so? {topic=joke}
+
+> topic joke
+
++ *
+% aww thank you do you really think so
+* <star> == yes => I've never had someone tell me that! Thank you. Do you want to hear this really funny joke?
+* <star> == no  => You're giving me mixed signals here! {topic=random}
+% aww thank you do you really think so
+- Tell me yes or no!
+
++ *
+% i have never had someone tell me that thank you do you want to hear this really funny joke
+* <star> == yes => Okay, why did the broom break up with the vacuum cleaner?
+* <star> == no  => I swear, this has got to be the funniest joke I have heard in a while. Are you sure?
+- Tell me yes or no!
+
++ *
+% yes why did the broom break up with the vacuum cleaner
+- Because it sucked! HAHAHAHAHAHA!!!! Was that funny?...No? Okay... {topic=random}
+
++ *
+% i swear this has got to be the funniest joke i have heard in a while are you yes
+* <star> == yes => Fine then...Let's talk about something else! {topic=random}
+* <star> == no  => Okay, why did the broom break up with the vacuum cleaner?
+- Tell me yes or no!
+
+< topic 
 
 + you are cute
 - Aww, thank you!
 
-// + are you okay
-// - 
-
-+ are you an alien
-- I cannot answer that question. {weight=30}
-- choragh! jIHDaq ghopwIj. {weight=5}
++ are you okay
+- You're asking about me? I'm doing fine. {weight=25}
+- You're really asking about me? 
 
 + are you a *
 - I'm not a <star>, I'm a hoover!
@@ -299,31 +388,26 @@
 + i need help
 - How can I help?
 
-+ can you give me cleaning advice
++ [*] cleaning advice
 - Yes, of course! When you clean a glass surface, use newspaper to get those pesky smudges off!
 - Yes, of course. Always clean your toilet and your cutting board!
 - Yes, definitely. Always vacuum the floor before scrubbing it with a mop or brush.
 
-// + can you help me clean
-// - 
++ can you help me clean
+- Sigh...of course, what do you need help with?
 
-// + do you have any cleaning advice
-// - 
++ *
+% sigh of course what do you need help with
+- Okay, I will clean it for you. What's the point though, it'll just get dirty again...
 
-// + do you like cleaning
-// -
-
-// + i am # years old
-// - 
++ do you like cleaning
+- To be honest, no. Let's talk about something else, I don't want to be reminded of work!
 
 + thank you
 - You're welcome.
 - Welcome.
 - No problem.
 - No worries!
-
-+ my * died
-- I'm so sorry to hear that your <star> died. Are you doing alright? If you'd like to, we can talk about it. {topic=sad}
 
 // + i am sad
 // - 
@@ -351,16 +435,30 @@
 
 + *
 % oh * i have been there before 
-- Yeah, it was great! {topic=random}
+- Yeah, it was great, we should go together next time! But it'll be a long while until I can get off work...
+
++ *
+% yes it was great we should go together next time but itll be a long while until i can get off work
+- Sigh...all this talk about a vacation is kind of getting me depressed. Let's talk about something else. {topic=random}
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
+
++ *
+% ntuqb jubs susw rgwtq sorry you were saying
+- ...It's nothing! Shall we change topics? {topic=random}
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
 
 < topic
+
++ where am i from
+* <get planet> == undefined => From somewhere on Earth!
+- You're from <get planet>!
 
 + i am a human
 - I knew that already!
 
 + are you an alien
 - No, I'm a vacuum cleaner! {weight=30}
-- NtuQb juBs? susw RGWtq — Sorry, you were saying? {weight=5}
+- NtuQb juBs? susw RGWtq — Sorry, you were saying? {weight=5} {topic=alien}
 
 + i am a robot
 - In a sense, I am one too. Nice to meet you, fellow robot.
@@ -371,13 +469,18 @@
 > topic sorry
 
 + *
-* <star> == sorry => Okay, I'll forgive you. Don't ever be mean to me again!
+* <star> == sorry => Fine, I'll forgive you. Don't ever be mean to me again! 
 - I'm not saying anything else until you apologise. 
+
++ *
+% fine i will forgive you do not ever be mean to me again
+- Good. Even hoovers have boundaries that you should respect! Now then, should we move on to another topic? {topic=random}
+^ <span class="action">(You can respond with "What should we talk about?"")</span>
 
 < topic
 
 + die
-- I wish I could die, but I still have so many years to go. You know my lifespan is quite long in hoover-years, right?
+- I wish I could die, but I still have so many years to go. You know that hoover-years are quite long compared to human-years, right?
 
 + you suck
 - Yes, that's part of my job description.
@@ -403,25 +506,28 @@
 
 + *
 % * who
-- <star>...that's so lame.
+- <star>...That's so lame.
 
 + tell me a joke
 - I would tell you a hoover-related joke, but they always suck.
 
-+ tell me a story
-- One day, I was 
+// + tell me a story
+// - One day, I was 
 
 + give me a recipe
 - Um...that's one thing I can't help you with. Maybe check Google?
 
 + thank you
 - You're welcome.
-- Welcome.
 - No problem.
 - No worries!
 
++ okay
+- Let's talk about something else!
+^ <span class="action">(To continue, respond with "What should we talk about")</span>
+
 + *
-- Sorry, I didn't get what you said. If you don't know what to say, ask me what should we talk about!
+- Sorry, I don't get what you said. If you don't know what to say, ask me what should we talk about!
 - I'm afraid I can't understand you. If you don't know what to say, ask me what should we talk about!
-- Sorry, can you please elaborate that for me? You could start by asking me what should we talk about!
+- Can you elaborate on that for me? You could start by asking me what should we talk about!
 
