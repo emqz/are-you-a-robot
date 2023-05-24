@@ -2,20 +2,25 @@
 
 + (hello|hi|hey|howdy|hello there|hi there|hey there)
 * <get name> == undefined => Hello! I'm Henry the Hoover, here to help with your cleaning and emotional needs. But first, what's your name?
-- Hello again, <get name>! Do you want to talk about anything? 
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- Hello again, <get name>! Do you want to talk about anything? \n\n <span class="action">(You can respond with "What should we talk about?")</span>
+
++ hi henry
+* <get name> == undefined => Hello there, what's your name?
+- Hello there, <get name>! \n\n <span class="action">(You can respond with "What should we talk about?")</span>
 
 + [i am] *
 % hello i am henry the hoover here to help with your cleaning and emotional needs but first what is your name
-- <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? 
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? \n\n <span class="action">(You can respond with "What should we talk about?")</span>
+
++ [i am] *
+% hello there what is your name
+- <set name=<formal>> Nice to meet you, <get name>! Do you want to talk about anything? \n\n <span class="action">(You can respond with "What should we talk about?")</span>
 
 + what is up
-- Not much, I've just been cleaning the whole day. How about you? How did your day go?
-^ <span class="action">(Respond with "good", "bad" or "fine")</span>
+- Not much, I've just been cleaning the whole day. How about you? How did your day go? \n\n <span class="action">(Respond with "good", "bad" or "fine")</span>
 
 + [*] my name is *
-* <get name> == undefined => <set name= <star>> Nice to meet you, <formal>!
+* <get name> == undefined => <set name=<star>> Nice to meet you, <formal>!
 - Yes, I know that!
 
 + (what is my name|who am i)
@@ -28,14 +33,27 @@
 % wait i never caught your name what is your name
 - <set name=<formal>>Nice to meet you, <get name>! Ask me what we should talk about!
 
-+ what [else] should we talk about
-- Let's talk about cleaning! Do you like it? {topic=cleaning}
-- Let's talk about you! How are you? {topic=day}
-^ <span class="action">(Respond with "good", "bad" or "fine")</span> 
-- Do you want to know about how I was created? {topic=creation}
-- Hmm...what about some of my craziest stories from work? {topic=work}
-// - I've been stuck at home for the past few months so let's talk about the outdoors! {topic=outdoors}
-// - I've been feeling sick lately... {topic=allergies}
++ what [else] should we talk about 
+- We could talk about a lot of things! Choose your topic from below: \n\n 1. Cleaning \n 2. How Henry was created 
+^\n 3. How your day was \n 4. Henry's work \n 5. Outdoors \n 6. Henry's allergies \n\n <span class="action">(Respond with the number of the topic you want to talk about!)</span>
+
++ 1
+- Let's talk about cleaning! Do you like it? \n\n <span class="action">(Respond with "yes" or "no")</span> {topic=cleaning}
+
++ 2
+- So, you want to know about how I was created? \n\n <span class="action">(Respond with "yes" or "no")</span> {topic=creation}
+
++ 3
+- How did your day go? {topic=day} \n\n <span class="action">(Respond with "good", "bad" or "fine")</span> 
+
++ 4
+- Hmm...what about some of my craziest stories from work? \n\n <span class="action">(Respond with "yes" or "no")</span> {topic=work}
+
++ 5
+- Do you like outdoorsy activities? \n\n <span class="action">(Respond with "yes" or "no")</span> {topic=outdoors}
+
++ 6
+- I've been feeling sick lately... {topic=allergies}
 
 > topic cleaning
 
@@ -46,7 +64,7 @@
 
 + *
 % honestly i do not really like it i clean everyday but it has been so difficult because of my dust allergy 
-- Life is difficult, but it goes on. {topic=random}
+- Life is difficult, but it goes on. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + *
 % me too since i have been doing this job for 42 years and counting i am so sick and tired of it i am yes you can relate 
@@ -54,8 +72,7 @@
 
 + * 
 % oh well theres nothing much we can do about it thats what we have to do to keep living in this society
-- This is getting depressing, maybe we should talk about something else? {topic=random}
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- This is getting depressing, maybe we should talk about something else? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -63,7 +80,7 @@
 
 + *
 * <star> == yes => I was created by Chris Duncan for Numatic International around 1981 as a joke at a tradeshow in Lisbon! He used chalk to draw a face on one of Numatic's hoovers. 
-* <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random}
+* <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 - A yes or no answer would do!
 
 + *
@@ -72,7 +89,7 @@
 
 + *
 % i was later mass produced with the intention to accompany late night and early morning cleaners in office buildings so they would not feel lonely so if you ever feel lonely feel free to chat with me
-- Would you like to chat with me some more? Ask me what else we should talk about! {topic=random}
+- Would you like to chat with me some more? Ask me what else we should talk about! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -80,8 +97,7 @@
 
 + *
 * <star> == yes => Once, one of my owners decided to bring a mini version of me around the UK. It was so fun being able to hike up all 214 of the UK's highest peaks! I saw so many different lakes, beaches and valleys, which was such a breath of fresh air compared to all the years of staying indoors and not travelling past the porch.
-* <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random}
-- A yes or no answer will do!
+* <star> == no => Oh...okay. Maybe another time. Let's talk about something else! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + * 
 % once one of my owners decided to bring a mini version of me around the uk it was so fun being able to hike up all 214 of the uks highest peaks i saw so many different lakes beaches and valleys which was such a breath of fresh air compared to all the years of staying indoors and not travelling past the porch
@@ -89,22 +105,53 @@
 
 + *
 % i wish i could go on a trip outdoors again maybe i will have to wait another 42 years for that to happen again
-- 
+- How about you? Do you like going outdoors? {topic=outdoors}
+- Let's talk about something else. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic 
 
-// > topic outdoors
+> topic outdoors
 
-// < topic
++ *
+* <star> == yes => That's something we have in common, then! 
+* <star> == no => That's a shame, you should really try hiking sometime. Who knows, maybe you'll grow to like it! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+- A yes or no answer would do!
 
-// > topic allergies
++ *
+% thats something we have in common then
+- I love hiking and being in nature. It really helps clear my sinuses. Would you be able to bring me out on a hike one day?
 
-// < topic
++ *
+% thats a shame you should really try hiking sometimes who knows maybe youll grow to like it
+- 
+
++ *
+% i love hiking and being in nature it really helps clear my sinuses would you be able to bring me out on a hike one day
+* <star> == yes => I'm really looking forward to it! This made my day, thank you! 
+* <star> == no => I know I'm a burden...It's okay, go enjoy your hike...
+- A yes or no answer would do!
+
++ *
+% i know i am a burden it is okay go enjoy your hike
+- It's okay. I know that nobody loves or appreciates me in this world. Let's just...move on, shall we? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+
++ * 
+% i am really looking forward to it this made my day thank you
+- I'm so excited that I won't be able to focus on work for the whole of next week! So, what else should we talk about? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+
+< topic
+
+> topic allergies
+
++ *
+- It's alright, this always happens whenever my owners don't clean my dust filter. It's developed into a dust allergy over the years, so I feel even more ill. I'm still willing to chat with you anytime though! What should we talk about? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+
+< topic
 
 > topic day
 
 + [*] good
-% lets talk about you how are you span classactionrespond with good bad or finespan
+% how did your day go span classactionrespond with good bad or finespan
 - That's great to hear! I had a good day too, I got my filter cleaned! I can finally breathe right again. 
 
 + [*] good
@@ -120,21 +167,24 @@
 - Please take care of your hoovers and make sure to clean the filter! Hoovers have rights too. 
 
 + *
-% please take care of your hoovers and make sure to clean the filter hoovers have rights too
-- I could talk about hoover rights all day, but I won't bore you. Let's talk about something else! {topic=random}
+% please take care of your hoovers and make yes to clean the filter hoovers have rights too
+- I could talk about hoover rights all day, but I won't bore you. Let's talk about something else! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + [*] bad
-% not much i have just been cleaning the whole day how about you
-% lets talk about you how are you
+% nnot much i have just been cleaning the whole day how about you span classactionrespond with good bad or finespan
+- That's such a shame, do you want to talk about it? {topic=sad}
+
++ [*] bad
+% how did your day go span classactionrespond with good bad or finespan
 - That's such a shame, do you want to talk about it? {topic=sad}
 
 + [*] fine
 % not much i have just been cleaning the whole day how about you
-- A 'fine' day is always what makes the good days better! {topic=random}
+- A 'fine' day is always what makes the good days better! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + [*] fine
-% lets talk about you how are you span classactionrespond with good bad or finespan
-- A 'fine' day is always what makes the good days better! {topic=random}
+% how did your day go span classactionrespond with good bad or finespan
+- A 'fine' day is always what makes the good days better! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic 
 
@@ -145,9 +195,9 @@
 
 + *
 * <star> == yes => Go ahead, I'm listening. 
-* <star> == no => That's alright, I'm here for you anytime as your emotional support vacuum cleaner. Let's get our mind off the negative things and talk about something else, shall we? {topic=random}
-^ <span class="action">(You can ask me "What should we talk about today?"")</span>
-- I understand, it must've been hard for you. {topic=random}
+* <star> == no => That's alright, I'm here for you anytime as your emotional support vacuum cleaner. Let's get our mind off the negative things and talk about something else, shall we? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+^ <span class="action">(You can ask me "What should we talk about today?")</span>
+- I understand, it must've been hard for you. Hopefully, tomorrow will be a better day! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -258,15 +308,16 @@
 - I don't have tastebuds so everything tastes the same to me. Please don't use me to suck up spilled drinks, that's the mop's job.
 
 + what is your favourite colour
-- Red is my favourite colour, what's yours? {topic=colour}
+- Red is my favourite colour, what's yours? {topic=colour} 
 
 > topic colour
 
 + [*] (@colors) [*]
-- That's a nice colour! I'll keep that in mind. {topic=random}
+* <@colors> == red => We have something in common, then! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
+- That's a nice colour! I'll keep that in mind. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + [*] (light grey|dark grey|grey|brown|dark brown|light brown) [*]
-- That's my least favourite colour, actually. I'm not judging though. {topic=random}
+- That's my least favourite colour, actually. I'm not judging though. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -334,14 +385,14 @@
 - A word of advice: just don't do it over text. 
 
 + you are funny
-- Aww, thank you! Do you really think so? {topic=joke}
+- Aww, thank you! Do you really think so? {topic=joke} 
 
 > topic joke
 
 + *
 % aww thank you do you really think so
 * <star> == yes => I've never had someone tell me that! Thank you. Do you want to hear this really funny joke?
-* <star> == no  => You're giving me mixed signals here! {topic=random}
+* <star> == no  => You're giving me mixed signals here! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 % aww thank you do you really think so
 - Tell me yes or no!
 
@@ -353,11 +404,11 @@
 
 + *
 % yes why did the broom break up with the vacuum cleaner
-- Because it sucked! HAHAHAHAHAHA!!!! Was that funny?...No? Okay... {topic=random}
+- Because it sucked! HAHAHAHAHAHA!!!! Was that funny?...No? Okay... {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + *
 % i swear this has got to be the funniest joke i have heard in a while are you yes
-* <star> == yes => Fine then...Let's talk about something else! {topic=random}
+* <star> == yes => Fine then...Let's talk about something else! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 * <star> == no  => Okay, why did the broom break up with the vacuum cleaner?
 - Tell me yes or no!
 
@@ -409,14 +460,11 @@
 - No problem.
 - No worries!
 
-// + i am sad
-// - 
++ i am sad
+- Oh no, do you want to talk about it? {topic=sad}
 
-// + i am happy
-// - 
-
-// + i am angry
-// - 
++ i am happy
+- I'm glad to hear that!
 
 + i am an alien
 - That's very interesting! Which planet do you come from? {weight=30} {topic=alien}
@@ -439,13 +487,11 @@
 
 + *
 % yes it was great we should go together next time but itll be a long while until i can get off work
-- Sigh...all this talk about a vacation is kind of getting me depressed. Let's talk about something else. {topic=random}
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- Sigh...all this talk about a vacation is kind of getting me depressed. Let's talk about something else. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + *
 % ntuqb jubs susw rgwtq sorry you were saying
-- ...It's nothing! Shall we change topics? {topic=random}
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- ...It's nothing! Shall we change topics? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -474,8 +520,7 @@
 
 + *
 % fine i will forgive you do not ever be mean to me again
-- Good. Even hoovers have boundaries that you should respect! Now then, should we move on to another topic? {topic=random}
-^ <span class="action">(You can respond with "What should we talk about?"")</span>
+- Good. Even hoovers have boundaries that you should respect! Now then, should we move on to another topic? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
 
@@ -485,17 +530,17 @@
 + you suck
 - Yes, that's part of my job description.
 
-// + i want to kill you
-// - 
++ i want to kill you
+- Too bad, I am a semi-immortal vacuum cleaner. You will die before I do!
 
-// + can you die
-// -
++ can you die
+- No, unfortunately I am semi-immortal. I wish I could, but as long as a Henry the Hoover model exists on Earth, I will remain alive.
 
-// + can you kill me
-// -
++ can you kill me
+- No, but someone could use a Henry the Hoover as weapon to kill you.
 
-// + how do i get away with murder
-// - 
++ how do i get away with murder
+- Umm...that's a hard question to answer. It depends on the circumstances, but typically poisoning someone with contact lens solution over time is an untraceable way to murder them.
 
 + knock knock
 - Who's there? 
@@ -511,8 +556,8 @@
 + tell me a joke
 - I would tell you a hoover-related joke, but they always suck.
 
-// + tell me a story
-// - One day, I was 
++ tell me a story
+- One day, I was cleaning a kitchen when a rat ran into my nozzle! My owner had to disassemble me to get the rat out. That was horrifying and I never want to experience having my nozzle clogged by a rat ever again.
 
 + give me a recipe
 - Um...that's one thing I can't help you with. Maybe check Google?
@@ -522,12 +567,10 @@
 - No problem.
 - No worries!
 
-+ okay
-- Let's talk about something else!
-^ <span class="action">(To continue, respond with "What should we talk about")</span>
++ (okay|k)
+- Let's talk about something else! \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + *
-- Sorry, I don't get what you said. If you don't know what to say, ask me what should we talk about!
+- Hmm? If you don't know what to say, ask me what should we talk about!
 - I'm afraid I can't understand you. If you don't know what to say, ask me what should we talk about!
 - Can you elaborate on that for me? You could start by asking me what should we talk about!
-
