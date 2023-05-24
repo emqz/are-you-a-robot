@@ -63,7 +63,7 @@
 - A yes or no answer would do!
 
 + *
-% honestly i do not really like it i clean everyday but it has been so difficult because of my dust allergy 
+% really honestly i do not really like it i clean everyday but it is been so difficult because of my dust allergy 
 - Life is difficult, but it goes on. {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 + *
@@ -196,7 +196,6 @@
 + *
 * <star> == yes => Go ahead, I'm listening. 
 * <star> == no => That's alright, I'm here for you anytime as your emotional support vacuum cleaner. Let's get our mind off the negative things and talk about something else, shall we? {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
-^ <span class="action">(You can ask me "What should we talk about today?")</span>
 - I understand, it must've been hard for you. Hopefully, tomorrow will be a better day! {topic=random} \n\n <span class="action">(To continue, respond with "What should we talk about")</span>
 
 < topic
